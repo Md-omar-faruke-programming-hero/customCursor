@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <title>Custom Cursor</title>
+
+
+
+
+  <Style>
+    body {
+       background-color: black;
+       cursor: pointer;
+   }
+
+
+
+      .inner-dot {
+       width: 5px; /* Adjust the width of your cursor elements */
+       height: 5px; /* Adjust the height of your cursor elements */
+       background-color: wheat;
+      }
+      .outer-outline {
+
+        width: 120px; /* Adjust the width of your cursor elements */
+        height: 120px; /* Adjust the height of your cursor elements */
+        background-image: url('https://woocommerce-1126261-4225566.cloudwaysapps.com/wp-content/uploads/2024/01/target2.png'); /* Replace 'path/to/your/image.png' with the actual path to your image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+      }
+    .inner-dot,
+    .outer-outline {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 1;
+      pointer-events: none;
+      
+    
+    }
+</Style>
+</head>
+<body>
+
+   
+
+    <div class="inner-dot" data-cursor-dot></div>
+    <div class="outer-outline" data-cursor-outline></div>
+
+
+
+
+
+    <script>
+        const cursorDot = document.querySelector("[data-cursor-dot]"); 
+        const cursorOutline = document.querySelector("[data-cursor-outline]");
+      
+        window.addEventListener("mousemove", function (e) {
+          const posX = e.clientX;
+          const posY = e.clientY;
+          cursorDot.style.left = `${posX}px`;
+          cursorDot.style.top = `${posY}px`;
+
+
+          cursorOutline.animate({
+              left: `${posX}px`,
+               top: `${posY}px`
+          }, { duration: 2000, fill: "forwards" });_
+          
+        });
+      </script>
+      
+</body>
+</html>
+
+
+
+
+
+
