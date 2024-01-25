@@ -1,0 +1,58 @@
+css:
+
+.inner-dot {
+       width: 5px; 
+       height: 5px; 
+       background-color: wheat;
+      }
+      .outer-outline {
+
+        width: 120px; 
+        height: 120px; 
+        background-image: url('https://ecommerce.ashdigital.xyz/wp-content/uploads/2024/01/Group-402.svg'); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+      }
+    .inner-dot,
+    .outer-outline {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 1;
+      pointer-events: none;
+      
+    
+    }
+
+
+section:
+
+<div class="inner-dot"  id="data-cursor-dot"></div>
+<div class="outer-outline" id="data-cursor-outline" ></div>
+
+
+javaScript:
+
+
+ <script>
+        const cursorDot = document.getElementById("data-cursor-dot"); 
+        const cursorOutline = document.getElementById("data-cursor-outline");
+      
+        window.addEventListener("mousemove", function (e) {
+          const posX = e.clientX;
+          const posY = e.clientY;
+          cursorDot.style.left = `${posX}px`;
+          cursorDot.style.top = `${posY}px`;
+
+
+          cursorOutline.animate({
+              left: `${posX}px`,
+               top: `${posY}px`
+          }, { duration: 500, fill: "forwards" });_
+          
+        });
+ </script>

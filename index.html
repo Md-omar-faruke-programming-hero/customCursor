@@ -19,15 +19,15 @@
 
 
       .inner-dot {
-       width: 5px; /* Adjust the width of your cursor elements */
-       height: 5px; /* Adjust the height of your cursor elements */
+       width: 5px; 
+       height: 5px; 
        background-color: wheat;
       }
       .outer-outline {
 
-        width: 120px; /* Adjust the width of your cursor elements */
-        height: 120px; /* Adjust the height of your cursor elements */
-        background-image: url('https://woocommerce-1126261-4225566.cloudwaysapps.com/wp-content/uploads/2024/01/target2.png'); /* Replace 'path/to/your/image.png' with the actual path to your image */
+        width: 120px; 
+        height: 120px; 
+        background-image: url('https://ecommerce.ashdigital.xyz/wp-content/uploads/2024/01/Group-402.svg'); 
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -45,24 +45,70 @@
       
     
     }
+
+
+      /* Basic button styling */
+      .custom-button {
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover me text styling */
+        .custom-button span {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Progress effect on hover */
+        .custom-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            border-radius: 30px;
+            background: #2ecc71; /* Progress color */
+            transition: width 1.5s ease; /* Adjust the transition duration */
+            z-index: 1;
+        }
+
+        .custom-button:hover::before {
+            width: 100%;
+            border-radius: 30px;
+        }
 </Style>
 </head>
 <body>
 
    
 
-    <div class="inner-dot" data-cursor-dot></div>
-    <div class="outer-outline" data-cursor-outline></div>
-
+   <div class="inner-dot"  id="data-cursor-dot">
+    <div ></div>
+   
+   </div>
+   <div class="outer-outline" id="data-cursor-outline">
+    <div  ></div>
+   </div>
+   <a href="#" class="custom-button"><span>Hover me</span></a>
 
 
 
 
     <script>
-        const cursorDot = document.querySelector("[data-cursor-dot]"); 
-        const cursorOutline = document.querySelector("[data-cursor-outline]");
-      
-        window.addEventListener("mousemove", function (e) {
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cursorDot = document.getElementById("data-cursor-dot");
+    const cursorOutline = document.getElementById("data-cursor-outline");
+
+    window.addEventListener("mousemove", function (e) {
           const posX = e.clientX;
           const posY = e.clientY;
           cursorDot.style.left = `${posX}px`;
@@ -72,9 +118,13 @@
           cursorOutline.animate({
               left: `${posX}px`,
                top: `${posY}px`
-          }, { duration: 2000, fill: "forwards" });_
+          }, { duration: 500, fill: "forwards" });_
           
         });
+});
+        
+      
+       
       </script>
       
 </body>
